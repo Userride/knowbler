@@ -89,6 +89,11 @@
   background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
 }
+.header-top-icon-button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
 
 /* ─────────────────────────────────────────
    ROW 2 — Active Case Bar  (purple)
@@ -208,6 +213,11 @@
   height: 22px;
   flex-shrink: 0;
   color: #7c5ce8;
+}
+.header-search-article-icon img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 .header-search-input-wrapper {
