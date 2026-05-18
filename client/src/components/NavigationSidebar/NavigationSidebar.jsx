@@ -33,7 +33,6 @@ const NavigationSidebar = ({ isSidebarOpen, onSidebarClose }) => {
           <div className="navigation-sidebar-logo-icon">
             <img src={logoIcon} alt="logo" />
           </div>
-          <span className="navigation-sidebar-logo-text">knowbler</span>
         </div>
 
         <div className="navigation-sidebar-nav">

@@ -29,7 +29,6 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
             <div className="header-logo-icon">
               <img src={logoIcon} alt="logo" />
             </div>
-            <span className="header-logo-text">knowbler</span>
           </div>
         </div>
         <div className="header-logo-bar-right">

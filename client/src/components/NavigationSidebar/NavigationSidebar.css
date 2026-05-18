@@ -38,17 +38,16 @@
 .navigation-sidebar-logo-icon {
   width: 26px;
   height: 26px;
-  background: linear-gradient(135deg, #a78bfa, #7c5ce8);
-  border-radius: 6px;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.navigation-sidebar-logo-icon svg {
-  width: 13px;
-  height: 13px;
-  color: #ffffff;
+.navigation-sidebar-logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .navigation-sidebar-logo-text {
