@@ -366,14 +366,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 ### App Router: `client/src/App.jsx`
 
 ```jsx
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ArticleDashboardPage from "./pages/ArticleDashboardPage/ArticleDashboardPage";
 
 const App = () => (
   <Router>
     <Routes>
       <Route path="/"  element={<ArticleDashboardPage />} />
-      <Route path="*"  element={<Navigate to="/" replace />} /> {/* catch-all redirect */}
     </Routes>
   </Router>
 );
