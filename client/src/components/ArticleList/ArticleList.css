@@ -1,0 +1,173 @@
+/* ArticleList.css */
+.article-list-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  flex: 1;
+}
+
+.article-list-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 12px;
+  color: #9ca3af;
+}
+
+.article-list-loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #ede9fe;
+  border-top-color: #5b35d5;
+  border-radius: 50%;
+  animation: spinnerRotate 0.7s linear infinite;
+}
+
+@keyframes spinnerRotate {
+  to { transform: rotate(360deg); }
+}
+
+.article-list-loading-text {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.article-list-error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 10px;
+  text-align: center;
+}
+
+.article-list-error-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fee2e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+}
+
+.article-list-error-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.article-list-error-message {
+  font-size: 12px;
+  color: #9ca3af;
+  max-width: 320px;
+}
+
+.article-list-error-retry-button {
+  margin-top: 8px;
+  padding: 7px 16px;
+  background-color: #5b35d5;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 150ms ease;
+}
+
+.article-list-error-retry-button:hover {
+  background-color: #4527a0;
+}
+
+.article-list-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 10px;
+  text-align: center;
+}
+
+.article-list-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d1d5db;
+}
+
+.article-list-empty-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.article-list-empty-message {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.article-list-items-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Infinite scroll sentinel (invisible trigger element) ── */
+.article-list-scroll-sentinel {
+  height: 1px;
+  width: 100%;
+}
+
+/* ── Load-more spinner shown while fetching next page ───── */
+.article-list-load-more-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.article-list-loading-spinner--small {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+}
+
+.article-list-load-more-text {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* ── End-of-list message ─────────────────────────────────── */
+.article-list-end-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border-top: 1px solid #f3f4f6;
+  font-size: 12px;
+  color: #c4b5fd;
+  font-weight: 500;
+}
+
+.article-list-end-message::before,
+.article-list-end-message::after {
+  content: "";
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e9d5ff);
+}
+.article-list-end-message::after {
+  background: linear-gradient(to left, transparent, #e9d5ff);
+}

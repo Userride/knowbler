@@ -1,0 +1,235 @@
+/* ArticlePreviewCard.css — matches the Knowbler hover popup design */
+
+/* ── Card shell ─────────────────────────────────────────── */
+.apc-card {
+  position: fixed;
+  z-index: 9999;
+  width: 360px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.08),
+    0 10px 30px -4px rgba(0, 0, 0, 0.16),
+    0 0 0 1px rgba(124, 92, 232, 0.06);
+  pointer-events: none;
+  animation: apcFadeSlideIn 160ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  scrollbar-width: thin;
+  scrollbar-color: #e9d5ff transparent;
+}
+
+.apc-card::-webkit-scrollbar       { width: 4px; }
+.apc-card::-webkit-scrollbar-track { background: transparent; }
+.apc-card::-webkit-scrollbar-thumb { background: #e9d5ff; border-radius: 4px; }
+
+@keyframes apcFadeSlideIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* ── Loading bar (top edge) ─────────────────────────────── */
+.apc-loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(90deg, #7c5ce8, #a78bfa, #7c5ce8);
+  background-size: 200% 100%;
+  animation: apcLoadingSlide 1.2s ease infinite;
+}
+
+@keyframes apcLoadingSlide {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.apc-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 14px 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.apc-type-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #a78bfa, #7c5ce8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  box-shadow: 0 2px 6px rgba(124, 92, 232, 0.35);
+}
+
+.apc-type-icon svg {
+  width: 14px;
+  height: 14px;
+  color: #ffffff;
+}
+
+.apc-header-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Badges row ─────────────────────────────────────────── */
+.apc-badges {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.apc-status-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+}
+
+.apc-status--draft {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.apc-status--published {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.apc-status--review {
+  background-color: #ede9fe;
+  color: #4c1d95;
+  border: 1px solid #c4b5fd;
+}
+
+.apc-status--archived {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+}
+
+.apc-type-tag {
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  color: #374151;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+.apc-article-id {
+  font-size: 10px;
+  color: #9ca3af;
+  font-weight: 400;
+  font-family: monospace;
+}
+
+.apc-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* ── Body ───────────────────────────────────────────────── */
+.apc-body {
+  padding: 12px 14px 10px;
+}
+
+.apc-section {
+  margin-bottom: 11px;
+}
+
+.apc-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.apc-section-text {
+  font-size: 12px;
+  color: #374151;
+  line-height: 1.55;
+}
+
+/* ── Classification grid ─────────────────────────────────── */
+.apc-classification-label {
+  margin-bottom: 8px;
+  padding-top: 10px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.apc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+
+/* ── Meta item ──────────────────────────────────────────── */
+.apc-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.apc-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9ca3af;
+}
+
+.apc-meta-value {
+  font-size: 12px;
+  color: #1f2937;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.apc-footer {
+  padding: 10px 14px;
+  border-top: 1px solid #f3f4f6;
+  background-color: #fafafa;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* ── Skeleton shimmer ───────────────────────────────────── */
+.apc-skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e9ecef 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: apcSkeletonShimmer 1.4s ease infinite;
+  border-radius: 4px;
+  display: block;
+}
+
+@keyframes apcSkeletonShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

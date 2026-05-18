@@ -1,0 +1,26 @@
+/* ArticleDashboardPage.css */
+.article-dashboard-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.article-dashboard-main-content {
+  flex: 1;
+  padding: 12px 12px 12px 12px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1280px) {
+  .article-dashboard-main-content {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .article-dashboard-main-content {
+    padding: 8px;
+  }
+}

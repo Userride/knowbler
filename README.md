@@ -382,41 +382,7 @@ const App = () => (
 
 ### Global Styles: `client/src/index.css`
 
-All design tokens are defined as CSS custom properties on `:root` so any component can use them:
-
-```css
-:root {
-  /* Brand colours */
-  --color-primary:        #5b35d5;
-  --color-primary-light:  #7c5ce8;
-  --color-primary-dark:   #4527a0;
-
-  /* Backgrounds */
-  --color-bg-header: #2d2b3d;   /* dark purple header */
-  --color-bg-main:   #f5f7fa;   /* light grey page bg */
-
-  /* Status badge colours */
-  --color-status-draft:         #f59e0b;
-  --color-status-published:     #10b981;
-  --color-status-review:        #6366f1;
-  --color-status-archived:      #6b7280;
-
-  /* Shadows */
-  --shadow-card:    0 1px 3px rgba(0,0,0,0.08);
-  --shadow-preview: 0 8px 32px rgba(0,0,0,0.14);
-
-  /* Spacing tokens */
-  --radius-sm: 4px;  --radius-md: 8px;  --radius-lg: 12px;
-
-  /* Transitions */
-  --transition-fast:   150ms ease;
-  --transition-normal: 250ms ease;
-
-  /* Typography scale */
-  --font-size-xs: 11px;  --font-size-sm: 12px;
-  --font-size-md: 14px;  --font-size-lg: 15px;
-}
-```
+The `index.css` file contains global reset rules and basic body styling without the use of CSS variables. All specific colors, typography scales, spacing, shadows, and transition values are defined directly within each individual component's CSS file to keep the styling simple and localized to the component level.
 
 ---
 
