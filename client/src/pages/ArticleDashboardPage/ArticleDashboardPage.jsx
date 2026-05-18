@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import NavigationSidebar from "../../components/NavigationSidebar/NavigationSidebar";
 import ArticleList from "../../components/ArticleList/ArticleList";
@@ -20,10 +20,10 @@ const ArticleDashboardPage = () => {
   const [activeSearchKeyword, setActiveSearchKeyword] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const searchDebounceTimerRef = useRef(null);
+
 
   // ── Initial / reset load ────────────────────────────────────────────
-  const loadInitialArticles = useCallback(async (searchKeyword = "") => {
+  const loadInitialArticles = async (searchKeyword = "") => {
     try {
       setIsLoadingArticles(true);
       setArticleFetchError(null);
@@ -49,10 +49,10 @@ const ArticleDashboardPage = () => {
     } finally {
       setIsLoadingArticles(false);
     }
-  }, []);
+  };
 
   // ── Load next page (appends to existing list) ───────────────────────
-  const loadNextPageOfArticles = useCallback(async () => {
+  const loadNextPageOfArticles = async () => {
     if (isLoadingMoreArticles || !hasMoreArticles) return;
 
     try {
@@ -74,31 +74,25 @@ const ArticleDashboardPage = () => {
     } finally {
       setIsLoadingMoreArticles(false);
     }
-  }, [isLoadingMoreArticles, hasMoreArticles, currentPage, activeSearchKeyword, articleList.length]);
+  };
 
-  // ── Initial load ────────────────────────────────────────────────────
   useEffect(() => {
-    loadInitialArticles("");
-  }, [loadInitialArticles]);
+    loadInitialArticles(activeSearchKeyword);
+  }, [activeSearchKeyword]);
 
   // ── Search with debounce ────────────────────────────────────────────
-  const handleSearchInputChange = useCallback((newSearchValue) => {
+  const handleSearchInputChange = (newSearchValue) => {
     setSearchInputValue(newSearchValue);
-    if (searchDebounceTimerRef.current) clearTimeout(searchDebounceTimerRef.current);
-    searchDebounceTimerRef.current = setTimeout(() => {
-      const trimmedKeyword = newSearchValue.trim();
-      setActiveSearchKeyword(trimmedKeyword);
-      loadInitialArticles(trimmedKeyword);
-    }, SEARCH_DEBOUNCE_DELAY_MS);
-  }, [loadInitialArticles]);
+    setActiveSearchKeyword(newSearchValue);
+  };
 
-  const handleMenuToggle = useCallback(() => {
-    setIsSidebarOpen((prev) => !prev);
-  }, []);
+  const handleMenuToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
-  const handleSidebarClose = useCallback(() => {
+  const handleSidebarClose = () => {
     setIsSidebarOpen(false);
-  }, []);
+  };
 
   return (
     <div className="article-dashboard-page">

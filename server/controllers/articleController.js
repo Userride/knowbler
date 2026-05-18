@@ -12,13 +12,12 @@ const getAllArticles = async (req, res) => {
 
     const articleSkipCount = (parseInt(page) - 1) * parseInt(limit);
 
-    const [articleList, totalArticleCount] = await Promise.all([
-      Article.find(filterQuery)
-        .sort({ createdAt: -1 })
-        .skip(articleSkipCount)
-        .limit(parseInt(limit)),
-      Article.countDocuments(filterQuery),
-    ]);
+    const articleList = await Article.find(filterQuery)
+      .sort({ createdAt: -1 })
+      .skip(articleSkipCount)
+      .limit(parseInt(limit));
+      
+    const totalArticleCount = await Article.countDocuments(filterQuery);
 
     res.status(200).json({
       success: true,
@@ -63,13 +62,12 @@ const searchArticles = async (req, res) => {
 
     const articleSkipCount = (parseInt(page) - 1) * parseInt(limit);
 
-    const [searchResults, totalSearchCount] = await Promise.all([
-      Article.find(searchQuery)
-        .sort({ createdAt: -1 })
-        .skip(articleSkipCount)
-        .limit(parseInt(limit)),
-      Article.countDocuments(searchQuery),
-    ]);
+    const searchResults = await Article.find(searchQuery)
+      .sort({ createdAt: -1 })
+      .skip(articleSkipCount)
+      .limit(parseInt(limit));
+      
+    const totalSearchCount = await Article.countDocuments(searchQuery);
 
     res.status(200).json({
       success: true,

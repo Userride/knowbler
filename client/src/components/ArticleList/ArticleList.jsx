@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ArticleListItem from "../ArticleListItem/ArticleListItem";
 import ArticlePreviewCard from "../ArticlePreviewCard/ArticlePreviewCard";
 import { fetchSingleArticle } from "../../services/articleService";
@@ -64,7 +64,7 @@ const ArticleList = ({
   }, [hasMoreArticles, isLoadingMoreArticles, onLoadMoreArticles]);
 
   /* ── Compute card position — always LEFT of the article row ── */
-  const computePosition = useCallback((itemRect) => {
+  const computePosition = (itemRect) => {
     const vh = window.innerHeight;
 
     // Always position to the LEFT of the article row
@@ -76,10 +76,10 @@ const ArticleList = ({
     const posY = Math.max(8, Math.min(rawY, vh - PREVIEW_CARD_HEIGHT - 8));
 
     return { x: Math.max(8, posX), y: posY };
-  }, []);
+  };
 
   /* ── Hover preview handlers ─────────────────────────── */
-  const handleArticleItemMouseEnter = useCallback((articleData, itemRect) => {
+  const handleArticleItemMouseEnter = (articleData, itemRect) => {
     if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
 
     // Show stub immediately so user gets visual feedback, then enrich with full data
@@ -108,14 +108,14 @@ const ArticleList = ({
         }
       }
     }, HOVER_DELAY_MS);
-  }, [computePosition]);
+  };
 
-  const handleArticleItemMouseLeave = useCallback(() => {
+  const handleArticleItemMouseLeave = () => {
     if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
     activeHoverIdRef.current = null;
     setHoveredArticleData(null);
     setIsLoadingPreview(false);
-  }, []);
+  };
 
   /* ── Initial loading state ──────────────────────────── */
   if (isLoadingArticles) {
