@@ -1,7 +1,7 @@
 import React from "react";
 import "./ArticlePreviewCard.css";
 
-import articleIcon from "../../assets/article-icon.svg";
+import { FileText } from "lucide-react";
 
 /* ── Helpers ────────────────────────────── */
 const formatArticleDate = (dateString) => {
@@ -48,7 +48,7 @@ const ArticlePreviewCard = ({ articleData, previewPositionX, previewPositionY, i
       {/* ── Header ─────────────────────────────── */}
       <div className="apc-header">
         <div className="apc-type-icon">
-          <img src={articleIcon} alt="article type" />
+          <FileText size={13} />
         </div>
         <div className="apc-header-meta">
           <div className="apc-badges">

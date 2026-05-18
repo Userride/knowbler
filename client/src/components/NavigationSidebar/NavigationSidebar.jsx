@@ -1,26 +1,21 @@
 import React from "react";
 import "./NavigationSidebar.css";
 
-import homeIcon from "../../assets/home-icon.svg";
-import profileIcon from "../../assets/profile-icon.svg";
-import bellIcon from "../../assets/bell-icon.svg";
-import reviewIcon from "../../assets/review-icon.svg";
-import casesIcon from "../../assets/cases-icon.svg";
-import agentIcon from "../../assets/agent-icon.svg";
+import { Home, User, Bell, CheckSquare, Folder, UserCheck } from "lucide-react";
 import logoIcon from "../../assets/logo-icon.svg";
 
 const sidebarNavigationItems = [
-  { id: "home", label: "Home", icon: <img src={homeIcon} alt="home" />, badgeCount: null, badgeColor: null, isActive: true },
-  { id: "profile", label: "Profile", icon: <img src={profileIcon} alt="profile" />, badgeCount: null, badgeColor: null, isActive: false },
+  { id: "home", label: "Home", icon: <Home size={16} />, badgeCount: null, badgeColor: null, isActive: true },
+  { id: "profile", label: "Profile", icon: <User size={16} />, badgeCount: null, badgeColor: null, isActive: false },
 ];
 
 const sidebarNotificationItems = [
-  { id: "review-returned", label: "Review Returned", icon: <img src={reviewIcon} alt="review" />, badgeCount: 3, badgeColor: "red", isActive: false },
-  { id: "cases-needing-articles", label: "Cases Needing Articles", icon: <img src={casesIcon} alt="cases" />, badgeCount: 3, badgeColor: "purple", isActive: false },
+  { id: "review-returned", label: "Review Returned", icon: <CheckSquare size={16} />, badgeCount: 3, badgeColor: "red", isActive: false },
+  { id: "cases-needing-articles", label: "Cases Needing Articles", icon: <Folder size={16} />, badgeCount: 3, badgeColor: "purple", isActive: false },
 ];
 
 const sidebarBottomItems = [
-  { id: "agent", label: "Agent", icon: <img src={agentIcon} alt="agent" />, badgeCount: null, badgeColor: null, isActive: false },
+  { id: "agent", label: "Agent", icon: <UserCheck size={16} />, badgeCount: null, badgeColor: null, isActive: false },
 ];
 
 const NavigationSidebar = ({ isSidebarOpen, onSidebarClose }) => {

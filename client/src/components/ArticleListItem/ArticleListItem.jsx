@@ -1,10 +1,7 @@
 import React, { useRef } from "react";
 import "./ArticleListItem.css";
 
-import documentIcon from "../../assets/document-icon.svg";
-import calendarIcon from "../../assets/calendar-icon.svg";
-import infoIcon from "../../assets/info-icon.svg";
-import moreIcon from "../../assets/more-icon.svg";
+import { FileText, Calendar, Info, MoreHorizontal } from "lucide-react";
 
 const formatDisplayDate = (dateString) => {
   if (!dateString) return "—";
@@ -40,7 +37,7 @@ const ArticleListItem = ({ articleData, onMouseEnter, onMouseLeave }) => {
     >
       <div className="article-list-item-icon-col">
         <div className="article-list-item-type-icon">
-          <img src={documentIcon} alt="document" />
+          <FileText size={10} />
         </div>
       </div>
 
@@ -66,16 +63,16 @@ const ArticleListItem = ({ articleData, onMouseEnter, onMouseLeave }) => {
 
       <div className="article-list-item-date-col">
         <div className="article-list-item-date">
-          <img src={calendarIcon} alt="calendar" />
+          <Calendar size={11} />
           <span>{formatDisplayDate(articleData.updatedAt || articleData.createdAt)}</span>
         </div>
         <div className="article-list-item-actions">
           <button className="article-list-action-button" aria-label="More options">
-            <img src={moreIcon} alt="more" />
+            <MoreHorizontal size={13} />
           </button>
         </div>
         <button className="article-list-item-info-button" aria-label="Article info">
-          <img src={infoIcon} alt="info" />
+          <Info size={13} />
         </button>
       </div>
     </div>

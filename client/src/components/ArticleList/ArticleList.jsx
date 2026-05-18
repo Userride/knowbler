@@ -4,8 +4,7 @@ import ArticlePreviewCard from "../ArticlePreviewCard/ArticlePreviewCard";
 import { fetchSingleArticle } from "../../services/articleService";
 import "./ArticleList.css";
 
-import alertIcon from "../../assets/alert-icon.svg";
-import emptySearchIcon from "../../assets/empty-search-icon.svg";
+import { AlertCircle, SearchX } from "lucide-react";
 
 /* ── Constants ──────────────────────────── */
 const PREVIEW_CARD_WIDTH  = 360;
@@ -124,7 +123,7 @@ const ArticleList = ({
     return (
       <div className="article-list-container">
         <div className="article-list-error-state" role="alert">
-          <div className="article-list-error-icon"><img src={alertIcon} alt="alert" /></div>
+          <div className="article-list-error-icon"><AlertCircle size={20} /></div>
           <div className="article-list-error-title">Failed to load articles</div>
           <div className="article-list-error-message">{articleFetchError}</div>
           <button className="article-list-error-retry-button" onClick={onRetryFetch}>
@@ -140,7 +139,7 @@ const ArticleList = ({
     return (
       <div className="article-list-container">
         <div className="article-list-empty-state">
-          <div className="article-list-empty-icon"><img src={emptySearchIcon} alt="empty" /></div>
+          <div className="article-list-empty-icon"><SearchX size={22} /></div>
           <div className="article-list-empty-title">No articles found</div>
           <div className="article-list-empty-message">
             Try adjusting your search or filter to find what you&apos;re looking for.

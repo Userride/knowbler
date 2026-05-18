@@ -1,16 +1,8 @@
 import React from "react";
 import "./Header.css";
 
-import menuIcon from "../../assets/menu-icon.svg";
+import { Menu, Grid, Globe, ChevronRight, ArrowLeftRight, Search, FileText, ArrowDownUp, Edit2 } from "lucide-react";
 import logoIcon from "../../assets/logo-icon.svg";
-import gridIcon from "../../assets/grid-icon.svg";
-import globeIcon from "../../assets/globe-icon.svg";
-import chevronRightIcon from "../../assets/chevron-right-icon.svg";
-import switchIcon from "../../assets/switch-icon.svg";
-import searchIcon from "../../assets/search-icon.svg";
-import articleIcon from "../../assets/article-icon.svg";
-import sortIcon from "../../assets/sort-icon.svg";
-import editIcon from "../../assets/edit-icon.svg";
 
 /* ── Component ─────────────────────────────── */
 const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCount }) => {
@@ -29,7 +21,7 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
             onClick={onMenuToggle}
             aria-label="Toggle navigation menu"
           >
-            <img src={menuIcon} alt="menu" />
+            <Menu size={16} />
           </button>
           <div className="header-logo-wrapper" aria-label="Knowbler home">
             <div className="header-logo-icon">
@@ -40,10 +32,10 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
         </div>
         <div className="header-logo-bar-right">
           <button className="header-top-icon-button" aria-label="Grid view">
-            <img src={gridIcon} alt="grid" />
+            <Grid size={16} />
           </button>
           <button className="header-top-icon-button" aria-label="Language">
-            <img src={globeIcon} alt="language" />
+            <Globe size={16} />
           </button>
         </div>
       </div>
@@ -57,12 +49,12 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
           <button className="header-related-articles-button" aria-label="Related articles">
             <span>Related Articles</span>
             <span className="header-related-count-badge">4</span>
-            <img src={chevronRightIcon} alt="chevron right" />
+            <ChevronRight size={14} />
           </button>
         </div>
         <div className="header-case-bar-right">
           <button className="header-switch-button" aria-label="Switch view">
-            <img src={switchIcon} alt="switch" />
+            <ArrowLeftRight size={14} />
             Switch
           </button>
         </div>
@@ -72,11 +64,11 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
       <div className="header-search-bar">
         <div className="header-search-bar-left">
           <span className="header-search-article-icon" aria-hidden="true">
-            <img src={articleIcon} alt="article" />
+            <FileText size={16} />
           </span>
           <div className="header-search-input-wrapper">
             <span className="header-search-magnifier">
-              <img src={searchIcon} alt="search" />
+              <Search size={14} />
             </span>
             <input
               id="article-search-input"
@@ -97,15 +89,15 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
           </div>
           <div className="header-divider" aria-hidden="true" />
           <button className="header-relevance-button" aria-label="Sort by relevance">
-            <img src={sortIcon} alt="sort" />
+            <ArrowDownUp size={14} />
             Relevance
           </button>
           <div className="header-divider" aria-hidden="true" />
           <button className="header-search-icon-button" aria-label="Edit">
-            <img src={editIcon} alt="edit" />
+            <Edit2 size={16} />
           </button>
           <button className="header-search-icon-button" aria-label="Language settings">
-            <img src={globeIcon} alt="language" />
+            <Globe size={16} />
           </button>
         </div>
       </div>
