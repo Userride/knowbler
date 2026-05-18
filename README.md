@@ -38,6 +38,7 @@
 | HTTP Client | Axios |
 | Backend | Node.js, Express 4 |
 | Database | MongoDB via Mongoose 7 |
+| Icons | lucide-react |
 | Dev Font | Inter (Google Fonts) |
 
 ---
@@ -433,19 +434,16 @@ The single page of the app. Owns all top-level state and orchestrates child comp
 | `isLoadingArticles` | Initial load spinner |
 | `isLoadingMoreArticles` | Load-more spinner at bottom |
 | `searchInputValue` | Controlled input value |
-| `activeSearchKeyword` | Debounced keyword sent to API |
+| `activeSearchKeyword` | Keyword sent to API |
 | `isSidebarOpen` | Mobile sidebar toggle |
 
 **Key logic:**
 
 ```jsx
-// Debounced search — waits 350ms after user stops typing
+// Simple search — updates search state immediately
 const handleSearchInputChange = (value) => {
   setSearchInputValue(value);
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(() => {
-    loadInitialArticles(value.trim()); // resets list, fetches page 1
-  }, 350);
+  setActiveSearchKeyword(value);
 };
 
 // Infinite scroll — IntersectionObserver in ArticleList fires this
