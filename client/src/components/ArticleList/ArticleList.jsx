@@ -4,18 +4,8 @@ import ArticlePreviewCard from "../ArticlePreviewCard/ArticlePreviewCard";
 import { fetchSingleArticle } from "../../services/articleService";
 import "./ArticleList.css";
 
-/* ── Icons ──────────────────────────────── */
-const AlertIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-  </svg>
-);
-
-const EmptySearchIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-  </svg>
-);
+import alertIcon from "../../assets/alert-icon.svg";
+import emptySearchIcon from "../../assets/empty-search-icon.svg";
 
 /* ── Constants ──────────────────────────── */
 const PREVIEW_CARD_WIDTH  = 360;
@@ -134,7 +124,7 @@ const ArticleList = ({
     return (
       <div className="article-list-container">
         <div className="article-list-error-state" role="alert">
-          <div className="article-list-error-icon"><AlertIcon /></div>
+          <div className="article-list-error-icon"><img src={alertIcon} alt="alert" /></div>
           <div className="article-list-error-title">Failed to load articles</div>
           <div className="article-list-error-message">{articleFetchError}</div>
           <button className="article-list-error-retry-button" onClick={onRetryFetch}>
@@ -150,7 +140,7 @@ const ArticleList = ({
     return (
       <div className="article-list-container">
         <div className="article-list-empty-state">
-          <div className="article-list-empty-icon"><EmptySearchIcon /></div>
+          <div className="article-list-empty-icon"><img src={emptySearchIcon} alt="empty" /></div>
           <div className="article-list-empty-title">No articles found</div>
           <div className="article-list-empty-message">
             Try adjusting your search or filter to find what you&apos;re looking for.
