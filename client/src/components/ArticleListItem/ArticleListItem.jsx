@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import "./ArticleListItem.css";
 
-import { FileText, Calendar, Info, MoreHorizontal } from "lucide-react";
+import { Calendar, Info, MoreHorizontal } from "lucide-react";
+import documentIcon from "../../assets/document-icon.svg";
 
 const formatDisplayDate = (dateString) => {
   if (!dateString) return "—";
@@ -37,7 +38,7 @@ const ArticleListItem = ({ articleData, onMouseEnter, onMouseLeave }) => {
     >
       <div className="article-list-item-icon-col">
         <div className="article-list-item-type-icon">
-          <FileText size={10} />
+          <img src={documentIcon} alt="document" />
         </div>
       </div>
 

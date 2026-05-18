@@ -1,8 +1,10 @@
 import React from "react";
 import "./Header.css";
 
-import { Menu, Grid, Globe, ChevronRight, ArrowLeftRight, Search, FileText, ArrowDownUp, Edit2 } from "lucide-react";
+import { Menu, Globe, ChevronRight, ArrowLeftRight, Search, ArrowDownUp, Edit2 } from "lucide-react";
 import logoIcon from "../../assets/logo-icon.svg";
+import gridIcon from "../../assets/grid-icon.svg";
+import articleIcon from "../../assets/article-icon.svg";
 
 /* ── Component ─────────────────────────────── */
 const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCount }) => {
@@ -32,7 +34,7 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
         </div>
         <div className="header-logo-bar-right">
           <button className="header-top-icon-button" aria-label="Grid view">
-            <Grid size={16} />
+            <img src={gridIcon} alt="grid" />
           </button>
           <button className="header-top-icon-button" aria-label="Language">
             <Globe size={16} />
@@ -64,7 +66,7 @@ const Header = ({ onMenuToggle, searchInputValue, onSearchChange, totalArticleCo
       <div className="header-search-bar">
         <div className="header-search-bar-left">
           <span className="header-search-article-icon" aria-hidden="true">
-            <FileText size={16} />
+            <img src={articleIcon} alt="article" />
           </span>
           <div className="header-search-input-wrapper">
             <span className="header-search-magnifier">
